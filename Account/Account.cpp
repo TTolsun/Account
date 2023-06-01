@@ -20,11 +20,22 @@ public:
 		mBalance -= money;
 	}
 
-	void complexInterest(const int percent)
+	void applyInterest()
 	{
-		mBalance += static_cast<int>(static_cast<float>(mBalance) * (static_cast<float>(percent) / 100.f));
+		mBalance += static_cast<int>(static_cast<float>(mBalance) * interest());
+	}
+
+	void setInterest(const int rate)
+	{
+		mInterest = static_cast<float>(rate) / 100.f;
 	}
 
 private:
+	float interest() const
+	{
+		return mInterest;
+	}
+
 	int mBalance{};
+	float mInterest{};
 };

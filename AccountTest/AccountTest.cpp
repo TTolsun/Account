@@ -22,6 +22,7 @@ TEST_F(AccountFixture, WithDraw) {
 }
 
 TEST_F(AccountFixture, ComplexInterest) {
-	account.complexInterest(5);
+	account.setInterest(5);
+	account.applyInterest();
 	EXPECT_EQ(account.getBalance(), 10500);
 }
