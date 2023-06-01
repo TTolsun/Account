@@ -26,3 +26,8 @@ TEST_F(AccountFixture, ComplexInterest) {
 	account.applyInterest();
 	EXPECT_EQ(account.getBalance(), 10500);
 }
+
+TEST_F(AccountFixture, ComplexInterestFewYear) {
+	account.setInterest(10);
+	EXPECT_EQ(account.predictInterest(3), 13310);
+}

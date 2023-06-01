@@ -1,3 +1,5 @@
+#include <iostream>
+
 class Account
 {
 public:
@@ -23,6 +25,16 @@ public:
 	void applyInterest()
 	{
 		mBalance += static_cast<int>(static_cast<float>(mBalance) * interest());
+	}
+
+	int predictInterest(const int maxYear) const
+	{
+		double sum = mBalance;
+		for (int year = 0; year < maxYear; year++)
+		{
+			sum = static_cast<double>(sum) + (sum * static_cast<double>(interest()));
+		}
+		return static_cast<int>(sum);
 	}
 
 	void setInterest(const int rate)
